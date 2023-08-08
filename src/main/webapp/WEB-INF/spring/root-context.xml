@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- 루트컨텐스트 설정: 모든 servlets and Filters가 공윺할 수 있는 루트스프링컨테이너 설정 
+	<!-- 루트컨텐스트 설정: 모든 servlets and Filters가 공유할 수 있는 루트스프링컨테이너 설정 
 	예) 공통 bean 설정-->
 	
 </beans>

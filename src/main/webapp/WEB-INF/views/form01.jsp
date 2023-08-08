@@ -9,7 +9,7 @@
 <body>
  <h2>스프링에서의 파라미터받기</h2>
  현재주소 http://localhost:8081/app/form01
- <form id="frm1" action="form01Result" method="post">
+ <form id="frm1" action="form01Result" method="get">
  	*이름: 
  	<input type="text"  name="userName"        id="userName" 
 	   	   size="10"    autofocus="autofocus"  placeholder="이름입력하세요"/>
@@ -23,6 +23,19 @@
     <input type="checkbox" name="hobby" id="h4" value="music"/><label for="h4">음악감상</label>  
     <input type="checkbox" name="hobby" id="h5" value="book"/><label for="h5">독서</label>
 	<br/>
+	
+	*hidden:
+	<input type="hidden" name="pageNo" value="100"/><br/>
+	
+	*선택: <%--keyword=writer --%>
+	<select name="search" id="search">
+		<option value="">선택</option>
+		<option value="title">제목</option>
+		<option value="content">내용</option>
+		<option value="writer">작성자</option>
+	</select>
+	<input type="text" name="keyword" id="keyword"/>
+	<br/><br/>	
 	
 	<input type="submit" value="전송" />
 	<input type="reset"  value="취소" />

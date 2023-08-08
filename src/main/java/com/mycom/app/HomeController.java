@@ -2,7 +2,9 @@ package com.mycom.app;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -77,20 +79,55 @@ public class HomeController {
 	//요청방식  post
 	//요청주소  http://localhost:8081/app/form01Result
 	//view  /WEB-INF/views/form01Result.jsp
-	@RequestMapping(value="/form01Result",method=RequestMethod.POST)
+	@RequestMapping(value="/form01Result",method=RequestMethod.GET)
 	public String form01Result(
 			@RequestParam String userName,
-			@RequestParam("hobby") String[]  hobbies) {
+			@RequestParam("hobby") String[]  hobbies,
+			@RequestParam(defaultValue="all") String search,
+			@RequestParam String keyword,
+			@RequestParam(required=false,defaultValue="1") int pageNo,
+			TestDTO testDTO){
 		//1.파라미터받기
+		logger.info("testDTO:{}", testDTO);//콘솔
+		
 		logger.info("이름:{}", userName);//콘솔
 		logger.info("관심사:{}", hobbies);//콘솔
 		for( String h: hobbies) {
 			System.out.println(h);
 		}
+		logger.info("검색분야:{}, 검색어:{}", search, keyword);
+		logger.info("페이지번호:{}", pageNo);
+
 		//2.비즈니스로직
 		//3.Model
 		//4.View
 		return "form01Result"; //   WEB-INF/views폴더안에  form01Result.jsp를 만들지 않았으므로 404에러가 뜬다
+	}
+	
+	//요청주소 http://localhost:포트번호/컨페/paramTest
+	//요청주소 http://localhost:8081/app/paramTest?name=홍&pw=1234
+	@RequestMapping("/paramTest")
+	public String paramTest(@RequestParam  Map<String,Object> paramMap) {
+		//Map참조변수명.put(Object키명,Object값)
+		//Map참조변수명.get(Object키명)
+
+		logger.info("파람name:{}, 파람pw:{}", paramMap.get("name"), paramMap.get("pw"));
+		return "paramTest"; //paramTest.jsp없어서 404발생
+	}
+	
+	//요청주소 http://localhost:포트번호/컨페/paramTest2
+	//요청주소 http://localhost:8081/app/paramTest2?name=홍1&name=HONG2&name=이순신
+	@RequestMapping("/paramTest2")
+	public String paramTest2(@RequestParam List<String> name) {
+		//Map참조변수명.add(Object값)
+		//Object값=List참조변수명.get(인덱스번호)
+		
+		//Map참조변수명.add(String값)
+		//String값=List참조변수명.get(인덱스번호)
+		for(String n :name) {
+			logger.info("파람name:{}", n);
+		}
+		return "paramTest"; //paramTest.jsp없어서 404발생
 	}
 	
 }

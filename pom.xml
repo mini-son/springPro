@@ -11,7 +11,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version><!-- 기본은 1.0-SNAPSHOT/ 완성되지않은 버전은 SNAPSHOT, 완성된 공식배포버전은 RELEASE-->
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+		<org.springframework-version>4.3.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
