@@ -205,13 +205,13 @@
     </dependency> 
 		
 		<!-- mysql연동 -->
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java 
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.24</version>
 		</dependency>
-		-->
+		
 		
 		<!-- JDBC 연동을 위한 라이브러리  -->
 		<!-- spring-jdbc : 커넥션 풀 설치를 위한 라이브러리 -->

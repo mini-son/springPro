@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<!-- 회원수 조회 -->
+	<!-- <select id="유니크한id명" resultType="자바의 데이터타입">
+	예시 <select id="totalMemberCNT" resultType="java.lang.Integer"> 
+	myBatis에서는 자바의 데이터타입이 내장되어 별칭(alias)으로 제공되고 있다.
+	short(별칭) 	Short(자바의 데이터 타입)
+	int 										Integer
+	hashmap 			Hashmap
+	list 										List
+	arraylist 				ArrayList-->
+	<select id="totalMemberCNT" resultType="int">
+		<![CDATA[
+		select count(no)
+		from member
+		]]>
+	</select>
+	
+	<!-- 목록조회 
+	 resultType="java.util.Map"으로 작성하는 것이 원칙이나
+	 myBatis에서 내장되어 제공되는 typeAliases를 사용하면 resultType="map"으로 작성가능-->
+	<select id="selectMemberList" resultType="map">
+		<![CDATA[
+		select no,memberid,password,name,regdate,isshow
+		from member
+		]]>
+	</select>
+	
+	<!-- id로 회원정보조회 -->
+	<select id="selectById" resultType="com.mycom.member.domain.MemberDTO">
+			<![CDATA[
+			select no,memberid,password,name,regdate,isshow
+			from member
+			where memberid='hongid'
+			]]>
+	</select>
+</mapper>
