@@ -3,6 +3,7 @@ package com.mycom.member.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mycom.member.domain.MemberDTO;
 import com.mycom.member.repository.MemberRepositoryImpl;
 
 //InterfaceMemberRepository의 구현클래스가 될 얘정
@@ -21,7 +22,14 @@ public class MemberServiceImpl {
 		int totalMemberCNT = memberRepositoryImpl.selectTotalMemberCNT();//dao의 메소드호출
 		return totalMemberCNT;
 	}
+	
 	//id로 회원정보조회
+	//리턴 MemberDTO- no,memberid,password,name,regdate,isshow
+	public MemberDTO getMemberById() {
+		MemberDTO memberDTO = memberRepositoryImpl.selectMemberById();
+		return memberDTO;
+	}
+	
 	//목록조회 
 	
 	
