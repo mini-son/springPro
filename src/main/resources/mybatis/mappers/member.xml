@@ -22,27 +22,28 @@
 	<!-- 목록조회 
 	 resultType="java.util.Hashmap"으로 작성하는 것이 원칙이나
 	 myBatis에서 내장되어 제공되는 typeAlias를 사용하면 resultType="hashmap"으로 작성가능-->
-	<select id="selectMemberList" resultType="hashmap">
-		<![CDATA[
-		select no,memberid,password,name,regdate,isshow
-		from member
-		where isshow='Y'
-		]]>
-	</select>
+		<select id="selectMemberList" resultType="hashmap">
+			<![CDATA[
+			select no,memberid,password,name,regdate,isshow
+			from member
+			where isshow='Y'
+			]]>
+		</select>
 	
 	<!-- id로 회원정보조회 
 	 parameterType="java.lang.String"으로 작성하는 것이 원칙이나
 	 myBatis에서 내장되어 제공되어 typeAlias를 사용하면  resultType="string"으로 작성가능-->
-	<select id="selectById" resultType="com.mycom.member.domain.MemberDTO"
-									 parameterType="string">
-			<![CDATA[
-			select no,memberid,password,name,regdate,isshow
-			from member
-			where memberid=#{memberid}
-			]]>
-	</select>
+		<select id="selectById" resultType="com.mycom.member.domain.MemberDTO"
+										 parameterType="string">
+				<![CDATA[
+				select no,memberid,password,name,regdate,isshow
+				from member
+				where memberid=#{memberid}
+				]]>
+		</select>
 	
-	<!-- 		//파라미터  String memberid-삭제하고 싶은 회원id
+		<!--(update용) 회원삭제 		
+		//파라미터  String memberid-삭제하고 싶은 회원id
 		public void updateIsShow(String memberid) {
 		sqlSession.update("member.updateIsShow",memberid); -->
 		<update id="updateIsShow" parameterType="string">	
@@ -57,8 +58,18 @@
 		<insert id="insertMember" parameterType="com.mycom.member.domain.MemberDTO">
 				<![CDATA[
 				insert into member(memberid,password,name,regdate,isshow)
-				values(#{memberid},#{password},#{name},now(),'Y');
+				values(#{memberid},#{password},#{name},now(),'Y')
 				]]>
 		</insert>
 		
+		<!-- 비변변경 포함한 회원정보변경
+			 parameterType="java.util.Map"으로 작성하는 것이 원칙이나
+			 myBatis에서 내장되어 제공되어 typeAlias를 사용하면  resultType="map"으로 작성가능-->
+		<update id="updateMember" parameterType="map">	
+					<![CDATA[
+					update member
+					set  name=#{name},password=#{password}
+					where memberid=#{memberid}
+					]]>
+		</update>
 </mapper>
