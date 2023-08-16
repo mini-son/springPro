@@ -23,6 +23,10 @@
 		List<HashMap<String, Object>> memberlist = memberServiceImpl.getMemberList();
 		model.addAttribute("memberlist", memberlist); --%>
 		memberlist=${memberlist}
+		<form id="searchForm" action="${cPath}/member/list" method="get">
+			<input type="text" placeholder="검색어 입력" name="keyword" />
+			<input type="submit" value="검색"/>
+		</form>
 	 <table id="memberTable" border="1">
     <thead>   
       <tr>
@@ -38,7 +42,7 @@
     <%--회원이 존재하지 않는 경우 --%>
     <c:if test="${empty memberlist}">
     	<tr>
-    		<td colspan="6">회원가입 하자</td>
+    		<td colspan="6">존재하는 회원이 없습니다.</td>
     	</tr>
     </c:if>
     <%--회원이 존재하는 경우 회원수만큼 반복 출력 --%>

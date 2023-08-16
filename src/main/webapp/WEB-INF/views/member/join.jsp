@@ -61,7 +61,7 @@ $(document).ready(function(){
       </tr>
       <tr>
         <th>비번</th>
-        <td><input type="text" name="password" id="password" required="required"/></td>
+        <td><input type="password" name="password" id="password" required="required"/></td>
       </tr>
       <%--<tr>
         <th>isshow</th><td>${memberDTO.isshow}</td>

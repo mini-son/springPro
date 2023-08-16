@@ -69,7 +69,11 @@ public class MemberController {
 	//요청방식 get
 	//view	 /WEB-INF/views/member/list.jsp
 	@RequestMapping("/list")
-	public void getMemberList(Model model) throws Exception {
+	public void getMemberList(Model model,@RequestParam HashMap<String,Object> map) throws Exception {
+		//1.파라미터받기 - 검색어가 존재하면 KEY로 keyword가 잡힌다.
+		if(map.containsKey("keyword")) {
+			System.out.println("파라미터 keyword="+map.get("keyword"));
+		}
 		/*리턴 List<HashMap<String,Object>>
 		HashMap은 Key, Value를 필요로 한다.
 		이 때 Key는 컬럼명, Value는 해당 컬럼의 값이다.
@@ -79,7 +83,7 @@ public class MemberController {
 		Key memberid에는 문자타입 hongid가 저장
 		한명의 회원 정보는 HashMap저장.
 		다수의 회원정보들이므로 List에 넣어줬다.*/
-		List<HashMap<String, Object>> memberlist = memberService.getMemberList();
+		List<HashMap<String, Object>> memberlist = memberService.getMemberList(map);
 		model.addAttribute("memberlist", memberlist);
 		
 		//return "/member/list";

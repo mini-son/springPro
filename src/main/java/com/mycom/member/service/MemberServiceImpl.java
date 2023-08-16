@@ -48,9 +48,9 @@ public class MemberServiceImpl implements MemberService{
 	한명의 회원 정보는 HashMap저장.
 	다수의 회원정보들이므로 List에 넣어줬다.*/
 	@Override
-	public  List<HashMap<String,Object>> getMemberList() throws Exception{
+	public  List<HashMap<String,Object>> getMemberList(HashMap<String,Object> map) throws Exception{
 		//sqlSession참조변수.메서드명("네임스페이스명.실행하려는id")
-		 List<HashMap<String,Object>> memberList = memberRepository.selectMemberList();
+		 List<HashMap<String,Object>> memberList = memberRepository.selectMemberList(map);
 		 return memberList;
 	
 	}

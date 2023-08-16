@@ -52,9 +52,9 @@ public class MemberRepositoryImpl implements MemberRepository {
 	/*	<select id="selectMemberList" resultType="hashmap">
 		select no,memberid,password,name,regdate,isshow*/
 	@Override
-	public  List<HashMap<String,Object>> selectMemberList()  throws DataAccessException{
+	public  List<HashMap<String,Object>> selectMemberList(HashMap<String,Object> map)  throws DataAccessException{
 		//sqlSession참조변수.메서드명("네임스페이스명.실행하려는id")
-		 List<HashMap<String,Object>> memberList = sqlSession.selectList("member.selectMemberList");
+		 List<HashMap<String,Object>> memberList = sqlSession.selectList("member.selectMemberList",map);
 		 return memberList;
 	}
 	

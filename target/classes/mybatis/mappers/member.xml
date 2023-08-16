@@ -22,18 +22,24 @@
 	<!-- 목록조회 
 	 resultType="java.util.Hashmap"으로 작성하는 것이 원칙이나
 	 myBatis에서 내장되어 제공되는 typeAlias를 사용하면 resultType="hashmap"으로 작성가능-->
-		<select id="selectMemberList" resultType="hashmap">
+		<select id="selectMemberList" resultType="hashmap" parameterType="hashmap">
 			<![CDATA[
 			select no,memberid,password,name,regdate,isshow
 			from member
 			where isshow='Y'
 			]]>
+			  <if test="keyword!=null and keyword!='' ">
+   			 AND name like concat('%',#{keyword},'%') or 
+      							memberid like concat('%',#{keyword},'%')
+  			</if>
 		</select>
 	
 	<!-- id로 회원정보조회 
 	 parameterType="java.lang.String"으로 작성하는 것이 원칙이나
-	 myBatis에서 내장되어 제공되어 typeAlias를 사용하면  resultType="string"으로 작성가능-->
-		<select id="selectById" resultType="com.mycom.member.domain.MemberDTO"
+	 myBatis에서 내장되어 제공되어 typeAlias를 사용하면  resultType="string"으로 작성가능
+	 resultType="com.mycom.member.domain.MemberDTO"으로 작성하는 것이 원칙이나
+	mybatis/model/modelConfig.xml에서 선언한 typeAlias를 사용하면 resultType="MemberDTO"으로 작성가능-->
+		<select id="selectById" resultType="MemberDTO"
 										 parameterType="string">
 				<![CDATA[
 				select no,memberid,password,name,regdate,isshow

@@ -17,7 +17,7 @@ public interface MemberRepository {
 	public MemberDTO selectMemberById(String memberid) throws DataAccessException;
 	
 	//목록조회
-	public  List<HashMap<String,Object>> selectMemberList() throws DataAccessException;
+	public  List<HashMap<String,Object>> selectMemberList(HashMap<String,Object> map) throws DataAccessException;
 	
 	//(update용)회원삭제
 	public int updateIsShow(String memberid) throws DataAccessException;
