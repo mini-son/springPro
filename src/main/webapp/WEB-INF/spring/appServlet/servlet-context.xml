@@ -24,12 +24,29 @@
 	     ViewResolver객체를 설정 
 	   예) 컨트롤러에서 view를 "home"지정하면
 	     "/WEB-INF/views/home.jsp"  -->
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
+	</beans:bean>-->
 	
+	<!-- tiles관련 library가 등록되어있어야만 한다. 우리는 pom.xml에 등록해놓은 상태이다. -->
+	   <!-- tiles설정-->
+   <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+      <beans:property name="definitions">
+         <beans:list>
+            <beans:value>classpath:tiles/*.xml</beans:value>
+         </beans:list>
+      </beans:property>
+      <beans:property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
+   </beans:bean> 
+   
+   <!-- tiles관련 Bean등록-->
+   <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+      <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/> 
+   </beans:bean> 
+   
+
 	<!-- Controller파일의 위치 설정 
 	참고
 	@Controller : Controller역할

@@ -11,6 +11,10 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
+/*lombok에서 사용가능한 @들
+  @Data : @Setter,@Getter,@ToString,@EqualsAndHashCode
+ @NoArgsConstructor
+ @AllArgsConstructor  등*/
 //member 테이블관련 data저장,제공 등의 기능을 제공 클래스
 public class MemberDTO {
 
