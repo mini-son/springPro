@@ -30,7 +30,7 @@ public class MemberController {
 	//생성자
 	//메서드
 	//전체회원수 조회
-	//요청주소 http://localhost:8081/app/totalMember
+	//요청주소 http://localhost:8081/app/member/totalMember
 	//get방식
 	@RequestMapping("/totalMember")
 	public void  getTotalMemberCNT(Model model) throws Exception {
@@ -182,11 +182,26 @@ public class MemberController {
 	//요청방식 get
 	//view	/WEB-INF/views/member/join.jsp
 	@RequestMapping(value="/join",method=RequestMethod.GET)
-	public void joinForm(){
+	public String joinForm(){
 		//1.파라미터받기
 		//2.비지니스로직
 		//3.Model
 		//4.View
+		return "/member/join";
+	}
+
+	//가입-(스프링프레임워크의 인터셉터를 설정 : 회원가입페이지의 한국어|ENGLISH 다국어지원)
+	//요청주소 http://localhost:8081/app/member/join.do
+	//요청방식 get
+	//view	/WEB-INF/views/member/join.jsp
+	@RequestMapping(value="/join.do",method=RequestMethod.GET)
+	public String joinForm2(){
+		System.out.println("member컨트롤러의 joinForm2");
+		//1.파라미터받기
+		//2.비지니스로직
+		//3.Model
+		//4.View
+		return "/member/join";
 	}
 
 	//가입처리-회원등록 처리

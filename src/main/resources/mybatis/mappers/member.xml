@@ -28,7 +28,7 @@
 			from member
 			where isshow='Y'
 			]]>
-			  <if test="keyword!=null and keyword!='' ">
+			  <if test="hashmap!=null and keyword!='' ">
    			 AND name like concat('%',#{keyword},'%') or 
       							memberid like concat('%',#{keyword},'%')
   			</if>

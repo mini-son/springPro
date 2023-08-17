@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cPath" value="<%=request.getContextPath() %>"/>
 
+<nav>
 	<ul>
 		<%--<c:choose><when test="로그인했으면 보여주는 부분">시작
 0	   <li><a href="#">비번변경</a></li>
@@ -15,7 +16,9 @@
 	   <li><a href="#">로그인</a></li>
 	   <li><a href="#">회원가입</a></li>
 	   <%--<c:otherwise>끝 --%>
-	   <li><a href="#">공지사항</a></li>
+	   <li><a href="${cPath}/notice/list">공지사항</a></li>
+	   <li><a href="#">메뉴</a></li>
+	   <li><a href="#">메뉴</a></li>
 	   <li><a href="#">메뉴</a></li>
 	   <li><a href="#">메뉴</a></li>
 	   <li><a href="#">메뉴</a></li>
@@ -24,3 +27,4 @@
 	   <li><a href="#">메뉴</a></li>
 	   <li><a href="#">메뉴</a></li>
 	</ul>
+</nav>

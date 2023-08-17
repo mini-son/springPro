@@ -18,7 +18,7 @@
 	   </c:choose> 끝--%>
 	   <%-- <c:otherwise>시작 --%>
 	   <li><a href="#">로그인</a></li>
-	   <li><a href="#">회원가입</a></li>
+	   <li><a href="${cPath}/member/join.do">회원가입</a></li>
 	   <%-- <c:otherwise>끝 --%>
 	   <li><a href="#">SITEMAP</a></li>
 	</ul>

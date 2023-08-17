@@ -9,7 +9,12 @@
 		 -->
 		<put-attribute name="header" value="/WEB-INF/views/common/hearder.jsp"/>
 		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp"/>
-		<put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+		<put-attribute name="body" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 	</definition>
+	
+	<definition name="/main" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+	</definition>
+
 </tiles-definitions>

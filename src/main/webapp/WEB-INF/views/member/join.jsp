@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@  taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <c:set var="cPath" value="<%=request.getContextPath() %>"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title><spring:message code="site.title" text="Member JOIN"/></title>
 <!-- jQuery연동 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
@@ -41,8 +42,12 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<br/><br/>
+<a href="${cPath}/member/join.do?locale=ko">한국어</a> | <a href="${cPath}/member/join.do?locale=en">ENGLISH</a>
+<hr/><br/><br/>
 <pre>http://localhost:8081/app/member/join</pre>
-	<h1>join.jsp</h1>
+	<%-- <spring:message code="properties의 KEY명" text="태그미적용시 사용되는 기본text"/>--%>
+	<h1><spring:message code="site.title2" text="--"/>(join.jsp)</h1>
 	
 	<form id="memberJoinForm" action="join" method="POST">
 	  <table id="memberJoinTable" border="1">
@@ -52,24 +57,21 @@ $(document).ready(function(){
         <td><input type="">${memberDTO.no}</td>
       </tr> --%>
       <tr>
-        <th>아이디</th>
+        <th><spring:message code="site.id" text="--"/></th>
         <td><input type="text" name="memberid" id="memberid" required="required"/></td>
       </tr>
       <tr>
-        <th>이름</th>
+        <th><spring:message code="site.name" text="--"/></th>
         <td><input type="text" name="name" id="name" required="required"/></td>
       </tr>
       <tr>
-        <th>비번</th>
+        <th><spring:message code="site.pw" text="--"/></th>
         <td><input type="password" name="password" id="password" required="required"/></td>
       </tr>
-      <%--<tr>
-        <th>isshow</th><td>${memberDTO.isshow}</td>
-      </tr>--%>
       <tr>
       	<td colspan="2">
-      		<a href="${cPath}/member/list">목록보기</a>
-      		<input type="button" id="joinBtn" value="가입"/>
+      		<a href="${cPath}/member/list"><spring:message code="btn.list" text="list"/></a>
+      		<input type="button" id="joinBtn" value="<spring:message code="btn.join" text="JOIN"/>"/>
       	</td>
       </tr>
     </tbody>

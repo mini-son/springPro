@@ -16,6 +16,7 @@ public interface MemberService {
 	
 	//목록조회
 	public  List<HashMap<String,Object>> getMemberList(HashMap<String,Object> map) throws Exception;
+	//public  List<HashMap<String,Object>> getMemberList(HashMap<String,Object> map) throws Exception;
 	
 	//회원삭제
 	public int deleteMember(String memberid) throws Exception;

@@ -54,7 +54,7 @@ public class MemberServiceImpl implements MemberService{
 		 return memberList;
 	
 	}
-	
+
 	//회원삭제
 	//파라미터  String memberid-삭제하고 싶은 회원id
 	//리턴 int - (update용)회원삭제 성공하면 1을 반환

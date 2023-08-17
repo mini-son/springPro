@@ -52,7 +52,7 @@
     <%--변수row에는 1명 회원의 정보가 HashMap으로 저장되어있다 --%>
     	<tr>
 	    		<td>${row.no}</td>
-	        <td><a href="${cPath}/member/getMember?mid=${row.memberid}">${row.memberid}</td>
+	        <td><a href="${cPath}/member/getMember?mid=${row.memberid}">${row.memberid}</a></td>
 	        <td>${row.name}</td>
 	        <td>${row.regdate}</td>
 	        <td>${row.isshow}</td>
